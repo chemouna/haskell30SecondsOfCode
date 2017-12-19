@@ -5,7 +5,7 @@
 
 ### Math
 * [`gcd`](#gcd)
-* [`Happy Numbers`](#happyMumbers)
+* [`Happy Numbers`](#happyNumbers)
 
 ### Lists
 * [`Palindrome`](#palindrome)
