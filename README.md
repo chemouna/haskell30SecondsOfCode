@@ -5,8 +5,8 @@
 
 ### Math
 * [`gcd`](#gcd)
-* [`Euler's totient function phi(m)`](#eulertotientfunction)
-* [`Happy Numbers`](#happynumbers)
+* [`Euler's totient function phi(m)`](#euler-totient-function)
+* [`Happy Numbers`](#happy-numbers)
 
 ### Lists
 * [`Palindrome`](#palindrome)
