@@ -5,6 +5,7 @@
 
 ### Math
 * [`gcd`](#gcd)
+* [`Happy Numbers`](#happyMumbers)
 
 ### Lists
 * [`Palindrome`](#palindrome)
@@ -21,6 +22,21 @@ mgcd x y = helper (abs x) (abs y)
   where
     helper a 0 = a
     helper a b = helper b (a `rem` b)
+```
+
+### happyNumbers 
+Starting with any positive integer, replace the number by the sum of the squares of its digits, and repeat the process
+until the number equals 1 (where it will stay), or it loops endlessly in a cycle which does not include 1.
+Those numbers for which this process ends in 1 are happy numbers, while those that do not end in 1 are unhappy numbers. 
+```haskell
+isHappy :: Integer -> Bool
+isHappy = helper empty
+  where
+    helper _ 1 = True
+    helper s n
+      | n `member` s = False
+      | otherwise = helper (insert n s) (f n)
+    f = sum . (((^ 2) . toInteger . digitToInt) <$>) . show
 ```
 
 
