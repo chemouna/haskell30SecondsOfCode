@@ -5,6 +5,7 @@
 
 ### Math
 * [`gcd`](#gcd)
+* [`Euler's totient function phi(m)`](#eulertotientfunction)
 * [`Happy Numbers`](#happynumbers)
 
 ### Lists
@@ -24,7 +25,15 @@ mgcd x y = helper (abs x) (abs y)
     helper a b = helper b (a `rem` b)
 ```
 
-### HappyNumbers 
+### Euler totient function
+the number of positive integers r (1 <= r < m) that are coprime to m.
+```haskell
+totient 1 = 1
+totient m = length $ filter (coprime m) [1..m-1]
+  where coprime a b = gcd a b == 1
+```
+
+### Happy Numbers 
 Starting with any positive integer, replace the number by the sum of the squares of its digits, and repeat the process
 until the number equals 1 (where it will stay), or it loops endlessly in a cycle which does not include 1.
 Those numbers for which this process ends in 1 are happy numbers, while those that do not end in 1 are unhappy numbers. 
