@@ -7,10 +7,16 @@
 * [`gcd`](#gcd)
 * [`Euler's totient function phi(m)`](#euler-totient-function)
 * [`Happy Numbers`](#happy-numbers)
+* [`Sierpinski Triangle`](#sierpinski-triangle)
 
 ### Lists
 * [`Palindrome`](#palindrome)
 
+### Strings 
+* [`Levenshtein distance`](#levenshtein-distance)
+
+### Trees
+* [`Tree Traversal`](#tree-traversal)
 
 [⬆ back to top](#table-of-contents)
 ## Math 
@@ -48,6 +54,16 @@ isHappy = helper empty
     f = sum . (((^ 2) . toInteger . digitToInt) <$>) . show
 ```
 
+### Pascal Triangle 
+    1
+   1 1
+  1 2 1
+ 1 3 3 1
+where each element of each row is either 1 or the sum of the two elements right above it.
+
+
+### Sierpinski Triangle
+
 
 [⬆ back to top](#table-of-contents)
 ## Lists
@@ -60,3 +76,41 @@ isPalindrome :: (Eq a) => [a] -> Bool
 isPalindrome xs = xs == (reverse xs)
 ```
  
+[⬆ back to top](#table-of-contents)
+## Strings 
+
+### Levenshtein distance 
+the minimum number of edits needed to transform one string into the other, with the allowable edit operations 
+being insertion, deletion, or substitution of a single character.
+
+
+## Trees
+
+### Tree Traversal 
+```haskell
+data Tree a =
+  Empty | Node { value :: a,
+                 left :: Tree a,
+                 right :: Tree a
+               }
+
+preorder :: Tree a -> [a]
+preorder Empty = []
+preorder (Node v l r) = v : preorder l ++ preorder r
+
+inorder :: Tree a -> [a]
+inorder Empty = []
+inorder (Node v l r) = inorder l ++ (v : inorder r)
+
+postorder :: Tree a -> [a]
+postorder Empty = []
+postorder (Node v l r) = postorder l ++ postorder r ++ [v]
+
+levelorder :: Tree a -> [a]
+levelorder t = loop [t]
+  where
+    loop [] = []
+    loop (Empty:xs) = loop xs
+    loop (Node v l r:xs) = v : loop (xs ++ [l, r]) 
+``` 
+  
