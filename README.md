@@ -5,6 +5,7 @@
 
 ### Math
 * [`gcd`](#gcd)
+* [`lcm`](#lcm)
 * [`Euler's totient function phi(m)`](#euler-totient-function)
 * [`Happy Numbers`](#happy-numbers)
 * [`Sierpinski Triangle`](#sierpinski-triangle)
@@ -21,7 +22,7 @@
 [⬆ back to top](#table-of-contents)
 ## Math 
 
-### gcd
+### GCD
 returns the greatest common divisor between two numbers.
 ```haskell
 mgcd :: Integral a => a -> a -> a
@@ -29,6 +30,15 @@ mgcd x y = helper (abs x) (abs y)
   where
     helper a 0 = a
     helper a b = helper b (a `rem` b)
+```
+
+### LCM
+returns the least common multiple 
+```haskell
+lcm :: (Integral a) => a -> a -> a
+lcm _ 0 = 0
+lcm 0 _ = 0
+lcm x y = abs ((x `quot` (gcd x y)) * y)
 ```
 
 ### Euler totient function
