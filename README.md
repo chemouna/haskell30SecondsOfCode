@@ -9,6 +9,7 @@
 * [`Euler's totient function phi(m)`](#euler-totient-function)
 * [`Happy Numbers`](#happy-numbers)
 * [`Sierpinski Triangle`](#sierpinski-triangle)
+* [`Pascal Triangle`](#pascaltriangle)
 
 ### Lists
 * [`Palindrome`](#palindrome)
@@ -71,6 +72,9 @@ isHappy = helper empty
  1 3 3 1
 where each element of each row is either 1 or the sum of the two elements right above it.
 
+```haskell
+pascal = iterate (\row -> zipWith (+) ([0] ++ row) (row ++ [0])) [1]
+```
 
 ### Sierpinski Triangle
 

@@ -1,3 +1,3 @@
 module MathPascal where
 
-pascal = [1,1] : map
+pascal = iterate (\row -> zipWith (+) ([0] ++ row) (row ++ [0])) [1]
