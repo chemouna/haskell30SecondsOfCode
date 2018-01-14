@@ -20,6 +20,10 @@
 ### Trees
 * [`Tree Traversal`](#tree-traversal)
 
+### Combinatorics 
+* [`Permutations`](#permutations)
+* [`subsets`](#subsets)
+
 [⬆ back to top](#table-of-contents)
 ## Math 
 
@@ -128,3 +132,19 @@ levelorder t = loop [t]
     loop (Node v l r:xs) = v : loop (xs ++ [l, r]) 
 ``` 
   
+## Combinatorics 
+
+### Permutations
+```haskell
+perms [] = [[]]
+perms xs = concatMap (\x -> (x:) <$> perms (delete x xs)) xs
+```
+
+### Subsets
+```haskell
+subsets xs 0 = [[]]
+subsets xs k
+  | length xs < k = []
+  | otherwise = subsets t k ++ map (h:) (subsets xs (k - 1))
+    where (h:t) = xs
+```
